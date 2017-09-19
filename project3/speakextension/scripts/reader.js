@@ -1,24 +1,36 @@
-console.log("oi");
-
-/*$(document).ready(function() {
+$(document).ready(function() {
+	var screen_text;
 	$("*:not(body)").hover(
 		function(event) {
-			$(".strongoutline").removeClass("strongoutline");
-			$(this).addClass("strongoutline");
-
-			var text = $(this).text();
-			speechSynthesis.cancel();
-			speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+			$(".highlight").addClass("highlight");
+			$(this).addClass("highlight");
+			screen_text = $(this).text();
+			//var text = $(this).text();
+			//speechSynthesis.cancel();
+			//speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 
 			event.stopPropagation();
 		},
 		function(event) {
-			$(this).removeClass("strongoutline");
+			$(this).removeClass("highlight");
 		}
 	);
+	$(document).keydown(function(event) {
+  		if (event.keyCode == 32) {
+  			//var body = document.body;
+			//var textContent = body.textContent || body.innerText;
+			//var t = $(this).textContent;
+    		//var text = $(this).text();
+			speechSynthesis.cancel();
+			speechSynthesis.speak(new SpeechSynthesisUtterance(screen_text));
+
+			//event.stopPropagation();
+ 			event.preventDefault();
+  		}
+	})
 })
 
-	var sentence = new SpeechSynthesisUtterance();
+	/*var sentence = new SpeechSynthesisUtterance();
 	sentence.text = "Marina Leao Lucena";
 	sentence.lang = "en-US";
 	sentence.rate = 1.2;
