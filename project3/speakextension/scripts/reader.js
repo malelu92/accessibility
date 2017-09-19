@@ -4,7 +4,21 @@ $(document).ready(function() {
 		function(event) {
 			$(".highlight").addClass("highlight");
 			$(this).addClass("highlight");
-			screen_text = $(this).text();
+
+
+			var tagname = this.tagName;
+			if (tagname == "IMG") {
+				console.log(tagname.attr)
+				console.log(tagname)
+				if ($(this).attr('title')) {
+					console.log($(this).attr('title'))
+					screen_text = $(this).attr('title')
+					console.log($(this).attr('title'))
+				}
+			}
+			else {
+				screen_text = $(this).text();
+			}	
 			//var text = $(this).text();
 			//speechSynthesis.cancel();
 			//speechSynthesis.speak(new SpeechSynthesisUtterance(text));
@@ -22,6 +36,8 @@ $(document).ready(function() {
 			//var t = $(this).textContent;
     		//var text = $(this).text();
 			speechSynthesis.cancel();
+			console.log('aqiu')
+			console.log(screen_text)
 			speechSynthesis.speak(new SpeechSynthesisUtterance(screen_text));
 
 			//event.stopPropagation();
@@ -31,7 +47,7 @@ $(document).ready(function() {
 })
 
 	/*var sentence = new SpeechSynthesisUtterance();
-	sentence.text = "Marina Leao Lucena";
+	sentence.text = "Emily Osborne";
 	sentence.lang = "en-US";
 	sentence.rate = 1.2;
 	sentence.onend = function(event) { alert("Finished in " + event.elapsedTime + "miliseconds."); }
