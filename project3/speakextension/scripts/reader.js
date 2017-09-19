@@ -8,12 +8,19 @@ $(document).ready(function() {
 
 			var tagname = this.tagName;
 			if (tagname == "IMG") {
-				console.log(tagname.attr)
-				console.log(tagname)
-				if ($(this).attr('title')) {
-					console.log($(this).attr('title'))
+				//console.log(tagname.attr)
+				//console.log(tagname)
+				/*if ($(this).attr('title')) {
 					screen_text = $(this).attr('title')
-					console.log($(this).attr('title'))
+					//console.log($(this).attr('title'))
+				}*/
+				if ($(this).attr('alt')){
+					screen_text = $(this).attr('alt');
+					console.log('l1');
+				}
+				else if ($(this).attr('src')){
+					screen_text = $(this).attr('src');
+					console.log('l2');
 				}
 			}
 			else {
