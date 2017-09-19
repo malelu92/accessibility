@@ -9,8 +9,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.accessibilitycourse.com/*",
-        "file:///Users/marinaleaolucena/Documents/CMU/Accessibility/project2_final/project2.html"
+        "http://www.accessibilitycourse.com/*"
       ],
       "js": [
           "scripts/jquery.min.js",
